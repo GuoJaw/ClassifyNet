@@ -30,11 +30,22 @@
 
 ## 《《 测试单张图像过程 》》
 
-1、进入“测试”目录
+方式1：python代码测试
 
-2、新建label.txt
+	1、进入“测试”目录
+	2、新建label.txt
+	3、执行npy.py生成mean.npy
+	4、执行test.py测试单张图像
 
-3、执行npy.py生成mean.npy
+方式2：命令测试
+	
+	/home/gjw/caffe-ssd-mobile/build/examples/cpp_classification/classification.bin   \
+		../deploy.prototxt   \
+		../snapshot/caffe_GuojawNet__iter_10000.caffemodel    \
+		../mean.binaryproto    \
+		labels.txt  \
+		image/2.jpg
+	
 
-4、执行test.py测试单张图像
+
 
