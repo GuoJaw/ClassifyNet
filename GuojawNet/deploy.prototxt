@@ -164,7 +164,7 @@ layer {
     decay_mult: 0
   }
   inner_product_param {
-    num_output: 2
+    num_output: 1024
   }
 }
 layer {
@@ -183,8 +183,25 @@ layer {
   }
 }
 layer {
+  name: "fc5"
+  type: "InnerProduct"
+  bottom: "fc4"
+  top: "fc5"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 2
+  }
+}
+layer {
   name: "prob"
   type: "Softmax"
-  bottom: "fc4"
+  bottom: "fc5"
   top: "prob"
 }
